@@ -3,8 +3,6 @@ const searchInput = document.querySelector('#search-input');
 const body = document.querySelector('body');
 const generateContent = document.querySelector('.generate-content');
 
-// searchBtn.addEventListener('click', searchRecipes);
-
 searchInput.addEventListener('input', searchRecipes);
 
 function searchRecipes(event) {
@@ -19,12 +17,17 @@ function searchRecipes(event) {
     .then((response) => response.json())
     .then((data) => {
       const { meals } = data;
-      const ingredients = [];
+
       console.log(meals);
       if (meals) {
         meals.map((meal, index) => {
           console.log(meal);
-          console.log(ingredients);
+
+          const ingredients = filterData(meal, 'Ingredient');
+          const measuers = filterData(meal, 'Measure');
+
+          console.log(combineIngredientsAndMeasures(ingredients, measuers));
+
           const newElement = document.createElement('div');
           newElement.innerHTML = `<div>
           <article class="recipe">
@@ -40,26 +43,7 @@ function searchRecipes(event) {
             <section class="ingredients">
               <h2>Ingredients</h2>
               <ul>
-                <li>1 pound sweet Italian sausage</li>
-                <li>3/4 pound lean ground beef</li>
-                <li>1/2 cup minced onion</li>
-                <li>2 cloves garlic, crushed</li>
-                <li>1 (28 ounce) can crushed tomatoes</li>
-                <li>2 (6 ounce) cans tomato paste</li>
-                <li>2 (6.5 ounce) cans canned tomato sauce</li>
-                <li>1/2 cup water</li>
-                <li>2 tablespoons white sugar</li>
-                <li>1 1/2 teaspoons dried basil leaves</li>
-                <li>1/2 teaspoon fennel seeds</li>
-                <li>1 teaspoon Italian seasoning</li>
-                <li>1 tablespoon salt</li>
-                <li>1/4 teaspoon ground black pepper</li>
-                <li>4 tablespoons chopped fresh parsley</li>
-                <li>12 lasagna noodles</li>
-                <li>16 ounces ricotta cheese</li>
-                <li>1 egg</li>
-                <li>3/4 pound mozzarella cheese, sliced</li>
-                <li>3/4 cup grated Parmesan cheese</li>
+                ${combineIngredientsAndMeasures(ingredients, measuers)}
               </ul>
             </section>
             <section class="directions">
@@ -70,10 +54,46 @@ function searchRecipes(event) {
           generateContent.appendChild(newElement);
         });
       } else {
-        // const newElement = document.createElement('div');
         generateContent.innerHTML = `<h1>Sorry no meals</h1>`;
       }
     });
+}
 
-  // Call API to fetch recipe data based on search query
+function filterData(data, key) {
+  const matchingKey = new RegExp(key);
+  const matchingKeys = Object.entries(data).reduce((acc, [key, value]) => {
+    if (matchingKey.test(key)) {
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
+
+  const filteredObj = Object.fromEntries(
+    Object.entries(matchingKeys).filter(
+      ([key, value]) => value !== '' && value != null && value !== ' '
+    )
+  );
+
+  return filteredObj;
+}
+
+function combineIngredientsAndMeasures(ingredients, measuers) {
+  let combinedIngredientsMeasures = [];
+  const allIngredients = Object.values(ingredients).map((ingredient) => {
+    return ingredient;
+  });
+
+  const allMeasures = Object.values(measuers).map((measure) => {
+    return measure;
+  });
+
+  for (let i = 0; i < allIngredients.length; i++) {
+    combinedIngredientsMeasures.push(
+      `${allIngredients[i]} -- ${allMeasures[i]}`
+    );
+  }
+
+  return combinedIngredientsMeasures
+    .map((item) => `<li>${item}</li>`)
+    .join(' ');
 }
