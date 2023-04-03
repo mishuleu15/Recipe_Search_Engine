@@ -29,7 +29,8 @@ function searchRecipes(event) {
           console.log(combineIngredientsAndMeasures(ingredients, measuers));
 
           const newElement = document.createElement('div');
-          newElement.innerHTML = `<div>
+          newElement.classList.add('recipe-content');
+          newElement.innerHTML = `
           <article class="recipe">
             <header>
               <h1>${meal.strMeal}</h1>
@@ -40,17 +41,16 @@ function searchRecipes(event) {
               <p><strong>Prep time:</strong> 1 hour</p>
               <p><strong>Cook time:</strong> 1 hour 30 minutes</p>
             </div>
-            <section class="ingredients">
+            <section >
               <h2>Ingredients</h2>
-              <ul>
+              <ul class="ingredients">
                 ${combineIngredientsAndMeasures(ingredients, measuers)}
               </ul>
             </section>
             <section class="directions">
               <h2>Directions</h2>
               <p>${meal.strInstructions}</p>
-          
-        </div>`;
+          `;
           generateContent.appendChild(newElement);
         });
       } else {
