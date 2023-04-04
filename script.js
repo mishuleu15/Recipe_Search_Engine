@@ -1,15 +1,18 @@
 const searchBtn = document.querySelector('#search-btn');
 const searchInput = document.querySelector('#search-input');
+const spinner = document.querySelector('#loader');
 const body = document.querySelector('body');
 const generateContent = document.querySelector('.generate-content');
 
 searchInput.addEventListener('input', searchRecipes);
 
+const searchQuery = searchInput.value;
+console.log(searchQuery);
+
 function searchRecipes(event) {
   event.preventDefault();
-  const searchInput = document.querySelector('#search-input');
-  const searchQuery = searchInput.value;
-  console.log(searchQuery);
+
+  spinner.style.display = 'block';
 
   generateContent.innerHTML = '';
 
@@ -18,15 +21,19 @@ function searchRecipes(event) {
     .then((data) => {
       const { meals } = data;
 
-      console.log(meals);
+      if (!meals) {
+        generateContent.innerHTML = `<h2>Sorry no meals</h2>`;
+        spinner.style.display = 'none';
+      }
+
       if (meals) {
-        meals.map((meal, index) => {
-          console.log(meal);
+        meals.map((meal) => {
+          // console.log(meal);
 
           const ingredients = filterData(meal, 'Ingredient');
           const measuers = filterData(meal, 'Measure');
 
-          console.log(combineIngredientsAndMeasures(ingredients, measuers));
+          // console.log(combineIngredientsAndMeasures(ingredients, measuers));
 
           const newElement = document.createElement('div');
           newElement.classList.add('recipe-content');
@@ -51,10 +58,10 @@ function searchRecipes(event) {
               <h2>Directions</h2>
               <p>${meal.strInstructions}</p>
           `;
+
           generateContent.appendChild(newElement);
+          spinner.style.display = 'none';
         });
-      } else {
-        generateContent.innerHTML = `<h1>Sorry no meals</h1>`;
       }
     });
 }
@@ -97,3 +104,56 @@ function combineIngredientsAndMeasures(ingredients, measuers) {
     .map((item) => `<li>${item}</li>`)
     .join(' ');
 }
+
+// initial load of default data
+function randomRecipes() {
+  spinner.style.display = 'block';
+
+  generateContent.innerHTML = '';
+
+  fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+    .then((response) => response.json())
+    .then((data) => {
+      const { meals } = data;
+      console.log(data);
+      if (!meals) {
+        generateContent.innerHTML = `<h2>Sorry no meals</h2>`;
+        spinner.style.display = 'none';
+      }
+      if (meals) {
+        meals.map((meal) => {
+          // console.log(meal);
+          const ingredients = filterData(meal, 'Ingredient');
+          const measuers = filterData(meal, 'Measure');
+          // console.log(combineIngredientsAndMeasures(ingredients, measuers));
+          const newElement = document.createElement('div');
+          newElement.classList.add('recipe-content');
+          newElement.innerHTML = `
+          <article class="recipe">
+            <header>
+              <h1>${meal.strMeal}</h1>
+              <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+            </header>
+            <div class="details">
+              <p><strong>Servings:</strong> 6</p>
+              <p><strong>Prep time:</strong> 1 hour</p>
+              <p><strong>Cook time:</strong> 1 hour 30 minutes</p>
+            </div>
+            <section >
+              <h2>Ingredients</h2>
+              <ul class="ingredients">
+                ${combineIngredientsAndMeasures(ingredients, measuers)}
+              </ul>
+            </section>
+            <section class="directions">
+              <h2>Directions</h2>
+              <p>${meal.strInstructions}</p>
+          `;
+          generateContent.appendChild(newElement);
+          spinner.style.display = 'none';
+        });
+      }
+    });
+}
+
+randomRecipes();
