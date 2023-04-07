@@ -6,9 +6,6 @@ const generateContent = document.querySelector('.generate-content');
 
 searchInput.addEventListener('input', searchRecipes);
 
-const searchQuery = searchInput.value;
-console.log(searchQuery);
-
 function searchRecipes(event) {
   event.preventDefault();
 
@@ -16,10 +13,14 @@ function searchRecipes(event) {
 
   generateContent.innerHTML = '';
 
+  const searchQuery = searchInput.value;
+
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`)
     .then((response) => response.json())
     .then((data) => {
       const { meals } = data;
+
+      console.log(meals);
 
       if (!meals) {
         generateContent.innerHTML = `<h2>Sorry no meals</h2>`;
