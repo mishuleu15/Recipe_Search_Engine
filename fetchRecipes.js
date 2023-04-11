@@ -24,7 +24,7 @@ export function fetchRecipes(url) {
             meal,
             combineIngredientsAndMeasures(ingredients, measures)
           );
-          console.log(recipeHtml);
+          // console.log(recipeHtml);
           addRecipeToPage(recipeHtml);
         });
       }

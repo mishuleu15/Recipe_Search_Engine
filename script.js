@@ -19,9 +19,9 @@ function searchRecipes(event) {
   );
 }
 
-function getRandomRecipe() {
-  showSpinner();
-  fetchRecipes('https://www.themealdb.com/api/json/v1/1/random.php');
-}
+// function getRandomRecipe() {
+//   showSpinner();
+//   fetchRecipes('https://www.themealdb.com/api/json/v1/1/random.php');
+// }
 
-getRandomRecipe();
+// getRandomRecipe();
