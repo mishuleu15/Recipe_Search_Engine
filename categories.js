@@ -12,11 +12,11 @@ function mealsCategories() {
         const newCategory = document.createElement('li');
         newCategory.innerHTML = `<form action="category.html">
         <input type="hidden" name="category" value="${category.strCategory}" />
-        <a href="category.html">${category.strCategory}<article class="category">
+        ${category.strCategory}<article class="category">
         <header>
           <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
         </header>
-        </article></a>
+        </article>
         <input id="search-btn" type="submit" value="Find recipes" />
         </form>`;
         categoriesList.appendChild(newCategory);
