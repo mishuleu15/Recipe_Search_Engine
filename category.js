@@ -1,6 +1,13 @@
+const body = document.querySelector('body');
+const categoriesMealList = document.querySelector('.categoriesMealsList');
+
 window.onload = function () {
   let url = new URL(window.location.href);
   let categoryName = url.searchParams.get('category');
+
+  const h1 = document.createElement('h1');
+  h1.textContent = categoryName;
+  body.appendChild(h1);
 
   function mealsCategories() {
     console.log(categoryName);
@@ -11,20 +18,20 @@ window.onload = function () {
       .then((data) => {
         const meals = data.meals;
         console.log(meals);
-        // categories.map((category) => {
-        //   const newCategory = document.createElement('li');
-        //   newCategory.innerHTML = `<form action="category.html">
-        //   <input type="hidden" name="category" value="${category.strCategory}" />
-        //   <a href="category.html">${category.strCategory}<article class="category">
-        //   <header>
-        //     <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
-        //   </header>
-        //   </article></a>
-        //   <input id="search-btn" type="submit" value="Find recipes" />
-        //   </form>`;
-        //   categoriesList.appendChild(newCategory);
-        //   body.appendChild(categoriesList);
-        // });
+        meals.map((meal) => {
+          const newMeal = document.createElement('li');
+          newMeal.innerHTML = `<form action="meal.html">
+          <input type="hidden" name="meal" value="${meal.idMeal}" />
+          ${meal.strMeal}<article class="category">
+          <header>
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+          </header>
+          </article>
+          <input id="search-btn" type="submit" value="Show recipe" />
+          </form>`;
+          categoriesMealList.appendChild(newMeal);
+          body.appendChild(categoriesMealList);
+        });
       });
   }
 
