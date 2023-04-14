@@ -2,12 +2,19 @@
 
 body {
   margin: 0;
-  padding: 2rem;
+  padding: 0;
 
   font-family: 'Ubuntu', sans-serif;
   line-height: 1.2;
 
   background-image: url('https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+}
+
+.logo {
+  width: 5rem;
+  border-radius: 10px;
+
+  cursor: pointer;
 }
 
 h1,

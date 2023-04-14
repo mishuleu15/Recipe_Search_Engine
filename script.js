@@ -2,9 +2,10 @@ import { fetchRecipes } from './fetchRecipes.js';
 import { showSpinner } from './utils.js';
 
 const searchInput = document.querySelector('#search-input');
+const searchBtn = document.querySelector('#search-btn');
 const generateContent = document.querySelector('.generate-content');
 
-searchInput.addEventListener('input', searchRecipes);
+searchBtn.addEventListener('click', searchRecipes);
 
 function searchRecipes(event) {
   event.preventDefault();
