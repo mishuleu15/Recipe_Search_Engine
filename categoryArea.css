@@ -1,0 +1,37 @@
+h1 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mealsListByCountry {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+
+  text-align: center;
+
+  list-style: none;
+}
+
+header img {
+  width: 18rem;
+  border-radius: 10px;
+}
+
+.mealsListByCountry li {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
+  padding: 16px;
+
+  transition: transform 0.2s;
+  overflow: hidden;
+}
+
+.mealsListByCountry li:hover {
+  transform: scale(1.05);
+}
+
+#search-btn {
+  cursor: pointer;
+}

@@ -6,15 +6,20 @@ function mealsCategories() {
     .then((response) => response.json())
     .then((data) => {
       const mealsByArea = data.meals;
-      console.log(mealsByArea);
-      mealsByArea.map((mealByArea) => {
+
+      mealsByArea.map((mealByArea, index) => {
         const newMealsByArea = document.createElement('li');
-        newMealsByArea.innerHTML = `<form action="categoryArea.html">
+
+        newMealsByArea.innerHTML = `<form id="mealsByArea${index}" action="categoryArea.html">
         <input type="hidden" name="mealByCountry" value="${mealByArea.strArea}" />
         ${mealByArea.strArea}<article class="category">
         </article>
-        <input id="search-btn" type="submit" value="Find recipes" />
         </form>`;
+
+        newMealsByArea.addEventListener('click', () => {
+          document.getElementById(`mealsByArea${index}`).submit();
+        });
+
         categoriesMealsByArea.appendChild(newMealsByArea);
         body.appendChild(categoriesMealsByArea);
       });

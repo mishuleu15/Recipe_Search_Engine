@@ -7,6 +7,8 @@ function mealsCategories() {
     .then((data) => {
       const ingredients = data.meals;
 
+      console.log(ingredients);
+
       const filteredIngredients = ingredients.filter(
         (ingredient) =>
           ingredient.strDescription !== null && ingredient.strDescription !== ''
