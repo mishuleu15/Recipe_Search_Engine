@@ -1,7 +1,9 @@
 import { fetchRecipes } from './fetchRecipes.js';
+import { showSpinner } from './utils.js';
 
-const body = document.querySelector('body');
-const meal = document.querySelector('.meal');
+showSpinner();
+// const body = document.querySelector('body');
+// const meal = document.querySelector('.meal');
 
 window.onload = function () {
   let url = new URL(window.location.href);
@@ -33,7 +35,5 @@ window.onload = function () {
 
   // mealsCategories();
 
-  console.log(
-    fetchRecipes(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`)
-  );
+  fetchRecipes(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`);
 };

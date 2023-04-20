@@ -7,9 +7,10 @@ const generateContent = document.querySelector('.generate-content');
 
 searchBtn.addEventListener('click', searchRecipes);
 
+showSpinner();
+
 function searchRecipes(event) {
   event.preventDefault();
-  showSpinner();
 
   generateContent.innerHTML = '';
 
@@ -21,7 +22,7 @@ function searchRecipes(event) {
 }
 
 function getRandomRecipe() {
-  showSpinner();
+  // showSpinner();
   fetchRecipes('https://www.themealdb.com/api/json/v1/1/random.php');
 }
 

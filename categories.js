@@ -1,6 +1,10 @@
+import { showSpinner, hideSpinner } from './utils.js';
+
 // const categoriesDiv = document.querySelector('.categories');
 const body = document.querySelector('body');
 const categoriesList = document.querySelector('.categoriesList');
+
+showSpinner();
 
 function mealsCategories() {
   fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -22,7 +26,8 @@ function mealsCategories() {
         categoriesList.appendChild(newCategory);
         body.appendChild(categoriesList);
       });
-    });
+    })
+    .finally(() => hideSpinner());
 }
 
 mealsCategories();

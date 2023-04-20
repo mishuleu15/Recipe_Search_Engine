@@ -31,9 +31,9 @@ h1,
   text-align: center;
 }
 
-.recipe-content {
+/* .recipe-content {
   display: flex;
-}
+} */
 
 article.recipe {
   background-color: whitesmoke;

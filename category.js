@@ -1,5 +1,9 @@
+import { showSpinner, hideSpinner } from './utils.js';
+
 const body = document.querySelector('body');
 const categoriesMealList = document.querySelector('.categoriesMealsList');
+
+showSpinner();
 
 window.onload = function () {
   let url = new URL(window.location.href);
@@ -32,7 +36,8 @@ window.onload = function () {
           categoriesMealList.appendChild(newMeal);
           body.appendChild(categoriesMealList);
         });
-      });
+      })
+      .finally(() => hideSpinner());
   }
 
   mealsCategories();

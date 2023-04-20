@@ -1,5 +1,16 @@
 const body = document.querySelector('body');
 const categoriesMealsByArea = document.querySelector('.areaMealsList');
+const spinner = document.querySelector('#loader');
+
+function showSpinner() {
+  spinner.style.display = 'block';
+}
+
+function hideSpinner() {
+  spinner.style.display = 'none';
+}
+
+showSpinner();
 
 function mealsCategories() {
   fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
@@ -23,7 +34,8 @@ function mealsCategories() {
         categoriesMealsByArea.appendChild(newMealsByArea);
         body.appendChild(categoriesMealsByArea);
       });
-    });
+    })
+    .finally(() => hideSpinner());
 }
 
 mealsCategories();

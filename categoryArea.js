@@ -1,5 +1,18 @@
+// import { showSpinner, hideSpinner } from './utils';
+
 const body = document.querySelector('body');
 const mealsListByCountry = document.querySelector('.mealsListByCountry');
+const spinner = document.querySelector('#loader');
+
+function showSpinner() {
+  spinner.style.display = 'block';
+}
+
+function hideSpinner() {
+  spinner.style.display = 'none';
+}
+
+showSpinner();
 
 window.onload = function () {
   let url = new URL(window.location.href);
@@ -32,7 +45,8 @@ window.onload = function () {
           mealsListByCountry.appendChild(newMeal);
           body.appendChild(mealsListByCountry);
         });
-      });
+      })
+      .finally(() => hideSpinner());
   }
 
   mealsCategories();
