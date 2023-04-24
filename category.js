@@ -14,25 +14,28 @@ window.onload = function () {
   body.appendChild(h1);
 
   function mealsCategories() {
-    console.log(categoryName);
     fetch(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
     )
       .then((response) => response.json())
       .then((data) => {
         const meals = data.meals;
-        console.log(meals);
-        meals.map((meal) => {
+
+        meals.map((meal, index) => {
           const newMeal = document.createElement('li');
-          newMeal.innerHTML = `<form action="meal.html">
+          newMeal.innerHTML = `<form id="meal${index}" action="meal.html">
           <input type="hidden" name="meal" value="${meal.idMeal}" />
           ${meal.strMeal}<article class="category">
           <header>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
           </header>
           </article>
-          <input id="search-btn" type="submit" value="Show recipe" />
           </form>`;
+
+          newMeal.addEventListener('click', () => {
+            document.getElementById(`meal${index}`).submit();
+          });
+
           categoriesMealList.appendChild(newMeal);
           body.appendChild(categoriesMealList);
         });

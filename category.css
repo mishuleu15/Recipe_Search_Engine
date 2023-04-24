@@ -33,6 +33,12 @@ header img {
 
   transition: transform 0.2s;
   overflow: hidden;
+
+  cursor: pointer;
+}
+
+.categoriesMealsList li:hover {
+  transform: scale(1.05);
 }
 
 #loader {
