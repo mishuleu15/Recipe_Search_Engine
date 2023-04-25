@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+body {
+  margin: 0 auto;
+  padding: 0;
+
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 1.2;
+
+  background: url('https://images.unsplash.com/photo-1547516508-4c1f9c7c4ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .logo {
   width: 5rem;
   border-radius: 10px;
@@ -15,6 +32,8 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3rem;
 
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
 
   list-style: none;
@@ -36,8 +55,9 @@ h1 {
   transform: scale(1.05);
 }
 
-#search-btn {
-  cursor: pointer;
+header img {
+  width: 15rem;
+  margin: 0 auto;
 }
 
 #loader {

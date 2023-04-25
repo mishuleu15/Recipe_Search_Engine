@@ -17,8 +17,8 @@ function mealsCategories() {
       filteredIngredients.map((ingredient) => {
         const newIngredient = document.createElement('li');
 
-        newIngredient.innerHTML = `<form action="category.html">
-        <input type="hidden" name="category" value="${ingredient.strIngredient}" />
+        newIngredient.innerHTML = `<form action="mealsByIngredients.html">
+        <input type="hidden" name="ingredient" value="${ingredient.strIngredient}" />
         ${ingredient.strIngredient}<article class="category">
        <p>${ingredient.strDescription}</p>
         </article>

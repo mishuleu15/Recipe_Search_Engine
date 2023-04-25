@@ -25,10 +25,11 @@ window.onload = function () {
           const newMeal = document.createElement('li');
           newMeal.innerHTML = `<form id="meal${index}" action="meal.html">
           <input type="hidden" name="meal" value="${meal.idMeal}" />
-          ${meal.strMeal}<article class="category">
-          <header>
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-          </header>
+          <article class="category">
+            <header>
+              <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+              <h3>${meal.strMeal}</h3>
+            </header>
           </article>
           </form>`;
 
