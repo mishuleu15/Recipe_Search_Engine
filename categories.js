@@ -16,10 +16,11 @@ function mealsCategories() {
 
         newCategory.innerHTML = `<form id="category${index}" action="category.html">
         <input type="hidden" name="category" value="${category.strCategory}" />
-        ${category.strCategory}<article class="category">
-        <header>
-          <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
-        </header>
+        ${category.strCategory}
+        <article class="category">
+          <header>
+            <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
+          </header>
         </article>
         </form>`;
 

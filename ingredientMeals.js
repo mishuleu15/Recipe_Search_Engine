@@ -24,10 +24,11 @@ window.onload = function () {
 
           newIngredient.innerHTML = `<form id="mealIngredient${index}" action="meal.html">
         <input type="hidden" name="meal" value="${ingredient.idMeal}" />
-        ${ingredient.strMeal}
+        
           <article class="category">
           <header>
             <img src="${ingredient.strMealThumb}" alt="${ingredient.strMeal}">
+            <h3>${ingredient.strMeal}</h3>
           </header> 
           </article>
         </form>`;

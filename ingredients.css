@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  line-height: 1.2;
+
+  background: url('https://images.unsplash.com/photo-1547516508-4c1f9c7c4ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80')
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem;
+}
+
+.ingredientCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ingredientsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2em;
+  list-style: none;
+
+  width: 97%;
+  margin: 0 auto;
+}
+
+.ingredientsList li {
+  background: whitesmoke;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
+
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+#search-btn {
+  display: inline-block;
+  width: 50%;
+  margin: 1rem auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background-color: #3e8e41;
+}
+
+/* Media Queries */
+
+/* Laptops and desktops with a minimum width of 1024px: */
+@media only screen and (max-width: 1399px) {
+  .ingredientsList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+
+    width: 95%;
+  }
+}
+
+/* Tablets with a maximum width of 1023px: */
+@media only screen and (max-width: 1023px) {
+  .ingredientsList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+/* Mobile devices with a maximum width of 767px: */
+@media only screen and (max-width: 767px) {
+  .ingredientsList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+/* Small mobile devices with a maximum width of 479px: */
+@media only screen and (max-width: 479px) {
+  body {
+    margin: 0;
+  }
+  .ingredientsList {
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
