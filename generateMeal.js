@@ -3,7 +3,7 @@ export function generateRecipeHtml(meal, combinedIngredients) {
     <div class="recipe-content">
       <article class="recipe">
         <header>
-          <h1>${meal.strMeal}</h1>
+          <h4>${meal.strMeal}</h4>
           <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
         </header>
         <div class="details">
@@ -12,13 +12,13 @@ export function generateRecipeHtml(meal, combinedIngredients) {
           <p><strong>Cook time:</strong> 1 hour 30 minutes</p>
         </div>
         <section>
-          <h2>Ingredients</h2>
+          <h4>Ingredients</h4>
           <ul class="ingredients">
          ${combinedIngredients}
           </ul>
         </section>
         <section class="directions">
-          <h2>Directions</h2>
+          <h4>Directions</h4>
           <p>${meal.strInstructions}</p>
         </section>
       </article>

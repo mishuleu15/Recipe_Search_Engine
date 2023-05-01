@@ -25,7 +25,48 @@ body {
 h1,
 .form-content {
   text-align: center;
-  padding-bottom: 1rem;
+  margin: 5rem;
+}
+
+.allOptions {
+  display: flex;
+  justify-content: space-between;
+
+  width: 60%;
+  margin: 5rem auto;
+}
+
+.allOptions a {
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
+  padding: 8rem;
+
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.allOptions a:hover {
+  transform: scale(1.09);
+}
+
+.meal-category {
+  background: url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80');
+  background-size: cover;
+}
+.category-country {
+  background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80');
+  background-size: cover;
+}
+.meal-ingredients {
+  background: url('https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80');
+  background-size: cover;
 }
 
 .generate-content {
@@ -33,14 +74,16 @@ h1,
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
 }
 
-/* .recipe-content {
+.recipe-content {
   display: flex;
-} */
+}
 
-article.recipe {
+.recipe {
   background-color: whitesmoke;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
@@ -58,7 +101,13 @@ header img {
 }
 
 .details {
-  text-align: start;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.details p {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 p {
@@ -66,6 +115,9 @@ p {
 }
 
 .ingredients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
   list-style: none;
   text-align: start;
 }

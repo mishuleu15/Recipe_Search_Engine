@@ -23,7 +23,7 @@ function searchRecipes(event) {
 
 function getRandomRecipe() {
   // showSpinner();
-  fetchRecipes('https://www.themealdb.com/api/json/v1/1/random.php');
+  fetchRecipes('https://www.themealdb.com/api/json/v1/1/search.php?f=b');
 }
 
 getRandomRecipe();
