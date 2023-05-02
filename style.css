@@ -37,16 +37,16 @@ h1,
 }
 
 .allOptions a {
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
   padding: 8rem;
 
   width: 10rem;
   height: 10rem;
-  margin: 0 auto;
-  text-align: center;
+
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  color: white;
 
   cursor: pointer;
   transition: all 0.3s;
@@ -57,15 +57,15 @@ h1,
 }
 
 .meal-category {
-  background: url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80');
+  background: url('./images/recipeCategories.jpg');
   background-size: cover;
 }
 .category-country {
-  background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80');
+  background: url('./images/mealCountry.jpg');
   background-size: cover;
 }
 .meal-ingredients {
-  background: url('https://images.unsplash.com/reserve/EnF7DhHROS8OMEp2pCkx_Dufer%20food%20overhead%20hig%20res.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80');
+  background: url('./images/ingredients.jpg');
   background-size: cover;
 }
 
@@ -85,7 +85,7 @@ h1,
 
 .recipe {
   background-color: whitesmoke;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
   padding: 16px;
 
