@@ -19,6 +19,8 @@ function searchRecipes(event) {
   fetchRecipes(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
   );
+
+  searchInput.value = '';
 }
 
 function getRandomRecipe() {
