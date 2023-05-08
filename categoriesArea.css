@@ -106,3 +106,61 @@ h3 {
     transform: rotate(360deg);
   }
 }
+
+/* Media Queries */
+
+/* Laptops and desktops with a minimum width of 1024px: */
+@media only screen and (max-width: 1319px) {
+  .allOptions {
+    scale: 80%;
+  }
+
+  .meal-category,
+  .category-country {
+    margin-right: 1rem;
+  }
+
+  .generate-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablets with a maximum width of 1023px: */
+/* @media only screen and (max-width: 1023px) {
+  .ingredientsList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+} */
+
+/* Mobile devices with a maximum width of 767px: */
+@media only screen and (max-width: 746px) {
+  .allOptions {
+    flex-direction: column;
+  }
+  .allOptions a {
+    width: 45%;
+    margin: 0.7rem auto;
+  }
+
+  .generate-content {
+    grid-template-columns: 1fr;
+
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+/* Small mobile devices with a maximum width of 479px: */
+@media only screen and (max-width: 375px) {
+  .generate-content {
+    grid-template-columns: 1fr;
+
+    width: 95%;
+    margin: 0 auto;
+  }
+}
