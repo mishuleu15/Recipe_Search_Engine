@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-body {
-  /* margin: 0;
-  padding: 2rem; */
+* {
+  margin: 0;
+  padding: 0;
+}
 
+body {
   font-family: 'Ubuntu', sans-serif;
   line-height: 1.2;
 
@@ -36,11 +38,17 @@ article.recipe {
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.26);
   padding: 16px;
+  height: 50rem;
+  width: 50%;
+  margin: 0 auto;
 
   display: flex;
 
   flex-direction: column;
   justify-content: space-between;
+}
+h4 {
+  margin-bottom: 1rem;
 }
 
 header img {
@@ -48,8 +56,10 @@ header img {
   border-radius: 10px;
 }
 
-.details {
-  text-align: start;
+.details p,
+.ingredients {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 p {
@@ -57,8 +67,12 @@ p {
 }
 
 .ingredients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
   list-style: none;
-  text-align: start;
+  text-align: left;
+  padding-left: 2rem;
 }
 
 #loader {
@@ -101,5 +115,71 @@ p {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+
+/* Laptops and desktops with a minimum width of 1024px: */
+@media only screen and (max-width: 1319px) {
+  header img {
+    width: 15rem;
+  }
+}
+
+/* Tablets with a maximum width of 1023px: */
+@media only screen and (max-width: 1023px) {
+  .generate-content {
+    width: 90%;
+  }
+
+  article.recipe {
+    width: 65%;
+  }
+
+  header img {
+    width: 17rem;
+  }
+}
+
+/* Mobile devices with a maximum width of 767px: */
+@media only screen and (max-width: 767px) {
+  .generate-content {
+    width: 80%;
+  }
+
+  article.recipe {
+    width: 85%;
+  }
+
+  header img {
+    width: 17rem;
+  }
+}
+
+/* Small mobile devices with a maximum width of 479px: */
+@media only screen and (max-width: 525px) {
+  .generate-content {
+    width: 90%;
+  }
+
+  article.recipe {
+    width: 95%;
+  }
+
+  header img {
+    width: 15rem;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  header img {
+    width: 6rem;
+  }
+}
+
+@media only screen and (max-width: 281px) {
+  header img {
+    width: 8rem;
   }
 }
