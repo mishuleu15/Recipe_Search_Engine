@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 body {
-  width: 90%;
-  margin: 0 auto;
   padding: 0;
 
   font-family: 'Ubuntu', sans-serif;
@@ -16,9 +14,22 @@ body {
   background-size: cover;
 }
 
+.logo {
+  width: 5rem;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
 h1 {
   text-align: center;
-  margin-bottom: 4rem;
+  margin: 4rem auto;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  letter-spacing: 1px;
 }
 
 .mealsListByCountry {
@@ -26,13 +37,10 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
 
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
-
   list-style: none;
-}
-
-h3 {
-  letter-spacing: 1px;
 }
 
 .mealsListByCountry li {
@@ -169,7 +177,7 @@ header img {
   header img {
     width: 8rem;
   }
-  .categoriesMealsList {
+  .mealsListByCountry {
     grid-template-columns: 1fr;
 
     width: 85%;

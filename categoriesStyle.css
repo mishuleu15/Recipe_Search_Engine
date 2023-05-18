@@ -124,7 +124,7 @@ header img {
 @media only screen and (max-width: 701px) {
   .categoriesList {
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 0.5rem;
 
     padding: 0;
   }

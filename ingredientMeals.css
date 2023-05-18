@@ -14,10 +14,21 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
+.logo {
+  width: 5rem;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
 
 h1 {
   text-align: center;
-  margin-bottom: 4rem;
+  margin: 4rem auto;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 header img {
@@ -27,7 +38,7 @@ header img {
 
 .ingredientMealsList {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   width: 90%;
   margin: 0 auto;
@@ -50,4 +61,77 @@ header img {
 
 .ingredientMealsList li:hover {
   transform: scale(1.05);
+}
+
+/* Media Queries */
+
+/* Laptops and desktops with a minimum width of 1024px: */
+@media only screen and (max-width: 1319px) {
+  .ingredientMealsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets with a maximum width of 1023px: */
+@media only screen and (max-width: 1023px) {
+  .ingredientMealsList {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+}
+
+/* Mobile devices with a maximum width of 767px: */
+@media only screen and (max-width: 701px) {
+  .ingredientMealsList {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  header img {
+    width: 12rem;
+  }
+}
+
+/* Small mobile devices with a maximum width of 479px: */
+@media only screen and (max-width: 525px) {
+  .ingredientMealsList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+    width: 95%;
+  }
+  header img {
+    width: 8rem;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin: 2rem 0;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  .ingredientMealsList {
+    width: 95%;
+
+    gap: 0.5rem;
+  }
+  header img {
+    width: 6rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 281px) {
+  header img {
+    width: 8rem;
+  }
+  .ingredientMealsList {
+    grid-template-columns: 1fr;
+
+    width: 85%;
+  }
 }

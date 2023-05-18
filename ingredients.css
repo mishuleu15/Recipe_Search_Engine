@@ -18,9 +18,16 @@ body {
   background-size: cover;
 }
 
+.logo {
+  width: 5rem;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
 h1 {
   text-align: center;
-  padding: 2rem;
+  margin: 4rem 0;
 }
 
 .ingredientCardContainer {
